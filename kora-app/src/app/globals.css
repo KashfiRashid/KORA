@@ -18,7 +18,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Lenis handles smooth scrolling — no CSS scroll-behavior needed */
 }
 
 body {
@@ -40,5 +40,65 @@ body {
 .fade-up { animation: kora-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @media (prefers-reduced-motion: reduce) {
   .fade-up { animation: none; }
-  html { scroll-behavior: auto; }
+}
+
+@keyframes kora-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+}
+
+/* ── Accordion ── */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+.animate-accordion-down {
+  animation: accordion-down 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-accordion-up {
+  animation: accordion-up 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Dialog (enter/exit via Tailwind data attributes) ── */
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes zoom-in-95 { from { transform: scale(0.95); } to { transform: scale(1); } }
+@keyframes zoom-out-95 { from { transform: scale(1); } to { transform: scale(0.95); } }
+.animate-in { animation-duration: 200ms; animation-fill-mode: both; }
+.animate-out { animation-duration: 150ms; animation-fill-mode: both; }
+.fade-in-0 { animation-name: fade-in; }
+.fade-out-0 { animation-name: fade-out; }
+.zoom-in-95 { animation-name: zoom-in-95; }
+.zoom-out-95 { animation-name: zoom-out-95; }
+.slide-in-from-left-1\/2 { --tw-translate-x: -50%; }
+.slide-in-from-top-\[48\%\] { --tw-translate-y: -48%; }
+.slide-out-to-left-1\/2 { --tw-translate-x: -50%; }
+.slide-out-to-top-\[48\%\] { --tw-translate-y: -48%; }
+
+/* ── Lenis ── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-accordion-down,
+  .animate-accordion-up { animation: none; }
+  .animate-in,
+  .animate-out { animation: none; }
 }

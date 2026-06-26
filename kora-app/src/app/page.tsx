@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ImageTile } from "@/components/image-tile";
+import { WhySection } from "@/components/why-section";
+import { VisionAccordion } from "@/components/vision-accordion";
+import { LookbookCarousel } from "@/components/lookbook-carousel";
+import { ProductDialog } from "@/components/product-dialog";
 
 const ethos = ["Honest material", "Quality over quantity", "Quiet by design", "From the source"];
 
@@ -48,15 +52,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ETHOS */}
-      <div className="border-y border-line bg-bone-soft">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-1 px-6 py-4 font-display text-base text-ink md:text-lg">
-          {ethos.map((e, i) => (
-            <span key={e} className="flex items-center gap-6">
-              {e}
-              {i < ethos.length - 1 ? <span className="text-clay">·</span> : null}
-            </span>
-          ))}
+      {/* ETHOS MARQUEE */}
+      <div className="overflow-hidden border-y border-line bg-bone-soft">
+        <div className="marquee-track flex w-max gap-8 py-4 font-display text-base text-ink [animation:kora-marquee_34s_linear_infinite] md:text-lg">
+          {Array.from({ length: 8 }).flatMap((_, k) =>
+            ethos.map((e, i) => (
+              <span key={`${k}-${i}`} className="flex items-center gap-8 whitespace-nowrap">
+                {e}
+                <span className="text-clay">·</span>
+              </span>
+            ))
+          )}
         </div>
       </div>
 
@@ -105,6 +111,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY — Start With Why */}
+      <WhySection />
+
+      {/* CHALLENGE THE STATUS QUO — Accordion */}
+      <VisionAccordion />
+
+      {/* LOOKBOOK CAROUSEL */}
+      <LookbookCarousel />
+
       {/* PILLARS */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <h2 className="font-display text-3xl tracking-tight text-ink md:text-4xl">What we hold to</h2>
@@ -122,14 +137,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCT FEATURE */}
+      {/* PRODUCT FEATURE — with Dialog quick-view */}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-24 md:grid-cols-2">
-        <ImageTile
-          src="/assets/kora-onfigure.png"
-          alt="A person training in The Everyday Training Tee."
-          label="The Everyday Training Tee"
-          className="aspect-[3/4]"
-        />
+        <ProductDialog>
+          <button className="text-left focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 focus:ring-offset-bone rounded-xl">
+            <ImageTile
+              src="/assets/kora-onfigure.png"
+              alt="A person training in The Everyday Training Tee. Click for quick view."
+              label="Quick view ↗"
+              className="aspect-[3/4] cursor-pointer"
+            />
+          </button>
+        </ProductDialog>
         <div className="fade-up">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-clay">
             Drop 01 — the first piece

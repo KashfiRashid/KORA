@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -28,18 +29,27 @@ export function WaitlistForm() {
       if (res.ok) {
         form.reset();
         setStatus("done");
+        toast.success("You\u2019re on the list.", {
+          description: "We\u2019ll be in touch before launch \u2014 no noise, just the drop.",
+        });
       } else {
         setStatus("error");
+        toast.error("Couldn\u2019t submit", {
+          description: "Add your Formspree ID in waitlist-form.tsx to activate.",
+        });
       }
     } catch {
       setStatus("error");
+      toast.error("Couldn\u2019t submit", {
+        description: "Add your Formspree ID in waitlist-form.tsx to activate.",
+      });
     }
   }
 
   if (status === "done") {
     return (
       <p className="text-sm text-bone/80">
-        Thank you — you&apos;re on the list. We&apos;ll be in touch before launch.
+        Thank you &mdash; you&apos;re on the list. We&apos;ll be in touch before launch.
       </p>
     );
   }
@@ -57,11 +67,11 @@ export function WaitlistForm() {
         className="flex-1"
       />
       <Button type="submit" variant="clay" disabled={status === "loading"}>
-        {status === "loading" ? "Joining…" : "Join the list"}
+        {status === "loading" ? "Joining\u2026" : "Join the list"}
       </Button>
       {status === "error" ? (
         <p className="w-full text-xs text-clay">
-          Couldn&apos;t submit — add your Formspree ID in waitlist-form.tsx.
+          Couldn&apos;t submit &mdash; add your Formspree ID in waitlist-form.tsx.
         </p>
       ) : null}
     </form>

@@ -3,6 +3,8 @@ import { Space_Grotesk, Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { LenisProvider } from "@/components/lenis-provider";
+import { Toaster } from "sonner";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -39,9 +41,22 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${bengali.variable}`}
     >
       <body className="font-sans">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <LenisProvider>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </LenisProvider>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "var(--color-ink)",
+              color: "var(--color-bone)",
+              border: "1px solid rgba(237,231,219,0.15)",
+              fontFamily: "var(--ff-display), sans-serif",
+            },
+          }}
+        />
       </body>
     </html>
   );

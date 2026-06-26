@@ -21,7 +21,7 @@ export function ImageTile({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl border border-line bg-bone-soft",
+        "group relative overflow-hidden rounded-xl border border-line bg-bone-soft",
         className
       )}
     >
@@ -30,7 +30,11 @@ export function ImageTile({
         alt={alt}
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
-        className={cn(fit === "cover" ? "object-cover" : "object-contain", position)}
+        className={cn(
+          fit === "cover" ? "object-cover" : "object-contain",
+          "transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+          position
+        )}
         priority={priority}
       />
       {label ? (

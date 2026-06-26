@@ -1,0 +1,13 @@
+# ruflo / claude-flow runtime artifacts
+.swarm/
+.claude-flow/
+ruvector.db
+*.db-shm
+*.db-wal
+
+# local agent/editor state
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+.DS_Store

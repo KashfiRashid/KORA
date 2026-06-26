@@ -1,23 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="KORA — the world's best cotton, kept home. Bangladesh to Vancouver.">
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bone" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F7F3EC"/>
-      <stop offset="1" stop-color="#E0D6C4"/>
-    </linearGradient>
-    <radialGradient id="clay" cx="0.8" cy="0.15" r="1">
-      <stop offset="0" stop-color="#CC8A6A"/>
-      <stop offset="0.45" stop-color="#B4552D"/>
-      <stop offset="1" stop-color="#8E3F1F"/>
-    </radialGradient>
+    <pattern id="weave" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="22" stroke="#1A1815" stroke-width="1" opacity="0.04"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bone)"/>
-  <rect x="760" y="0" width="440" height="630" fill="url(#clay)"/>
-  <g fill="none" stroke="#1A1815" stroke-opacity="0.10" stroke-width="2">
-    <path d="M0 470 H760"/><path d="M0 510 H760"/><path d="M0 550 H760"/>
+  <rect width="1200" height="630" fill="#EDE7DB"/>
+  <rect width="1200" height="630" fill="url(#weave)"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#B4552D" stroke-width="1.5" opacity="0.4"/>
+
+  <text x="80" y="96" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="700" font-size="20" letter-spacing="4" fill="#7C7A66">RAW QUALITY — MADE HONEST</text>
+  <text x="1120" y="96" text-anchor="end" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="700" font-size="20" letter-spacing="4" fill="#B4552D">DROP 01</text>
+
+  <g transform="translate(600,205)">
+    <circle r="40" stroke="#1A1815" stroke-width="3" fill="none"/>
+    <line x1="-15" y1="-37" x2="-15" y2="37" stroke="#B4552D" stroke-width="2.4"/>
+    <line x1="-6" y1="-39" x2="-6" y2="39" stroke="#B4552D" stroke-width="2.4"/>
+    <line x1="6" y1="-39" x2="6" y2="39" stroke="#B4552D" stroke-width="2.4"/>
+    <line x1="15" y1="-37" x2="15" y2="37" stroke="#B4552D" stroke-width="2.4"/>
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="#1A1815" stroke-width="3"/>
   </g>
-  <text x="80" y="240" font-family="'Space Grotesk', Arial, sans-serif" font-size="150" font-weight="700" letter-spacing="14" fill="#1A1815">KORA</text>
-  <text x="84" y="320" font-family="'Noto Sans Bengali', Arial, sans-serif" font-size="64" fill="#B4552D">কোরা</text>
-  <text x="82" y="418" font-family="Arial, sans-serif" font-size="29" letter-spacing="4" fill="#4A443B">The world's best cotton, kept home.</text>
-  <text x="82" y="585" font-family="Arial, sans-serif" font-size="25" letter-spacing="7" fill="#756E60">BANGLADESH → VANCOUVER</text>
-  <text x="980" y="335" text-anchor="middle" font-family="'Noto Sans Bengali', Arial, sans-serif" font-size="120" fill="#F7F3EC" opacity="0.92">কোরা</text>
+
+  <text x="600" y="400" text-anchor="middle" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="700" font-size="150" letter-spacing="22" fill="#1A1815">KORA</text>
+  <text x="600" y="470" text-anchor="middle" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="400" font-size="28" letter-spacing="6" fill="#4A443B">THE WORLD'S BEST COTTON, KEPT.</text>
+
+  <line x1="80" y1="540" x2="1120" y2="540" stroke="#1A1815" stroke-width="1" opacity="0.18"/>
+  <text x="80" y="578" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="700" font-size="22" letter-spacing="3" fill="#1A1815">BANGLADESH &#8594; VANCOUVER</text>
+  <text x="1120" y="578" text-anchor="end" font-family="'Liberation Sans','DejaVu Sans',sans-serif" font-weight="400" font-size="22" letter-spacing="3" fill="#7C7A66">Bangladesh-born training brand</text>
 </svg>

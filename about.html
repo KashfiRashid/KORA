@@ -7,6 +7,8 @@
   <meta name="description" content="Three friends from Bangladesh, training in Vancouver. We got tired of the best cotton on earth leaving home as fast fashion — so we kept it. This is KORA." />
   <meta name="theme-color" content="#EDE7DB" />
   <link rel="canonical" href="https://kora.example/about.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="KORA" />
@@ -14,12 +16,14 @@
   <meta property="og:description" content="Three friends from Bangladesh, training in Vancouver. We kept the best cotton on earth at home." />
   <meta property="og:locale" content="en_CA" />
   <meta property="og:url" content="https://kora.example/about.html" />
-  <meta property="og:image" content="assets/og-cover.svg" />
-  <meta property="og:image:alt" content="KORA wordmark in raw cotton and clay — কোরা, Bangladesh to Vancouver." />
+  <meta property="og:image" content="assets/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="KORA wordmark — the world's best cotton, kept. Bangladesh to Vancouver." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About KORA" />
   <meta name="twitter:description" content="Three friends from Bangladesh, training in Vancouver. We kept the best cotton on earth at home." />
-  <meta name="twitter:image" content="assets/og-cover.svg" />
+  <meta name="twitter:image" content="assets/og-cover.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +37,7 @@
     <div class="shell">
       <nav class="nav" aria-label="Primary">
         <a class="brand" href="index.html" aria-label="KORA home">
+          <img class="brand__icon" src="assets/logo-mark.svg" alt="" width="22" height="22" />
           <span class="brand__mark">KORA</span>
           <span class="brand__bn bn" aria-hidden="true">কোরা</span>
         </a>
@@ -43,7 +48,7 @@
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="about.html" aria-current="page">About</a></li>
           <li><a class="nav__link" href="shop.html">Shop</a></li>
-          <li><a class="nav__link btn btn--ghost" href="shop.html">Drop 01 <span class="arr" aria-hidden="true">→</span></a></li>
+          <li><a class="nav__link btn btn--ghost" href="shop.html#waitlist">Drop 01 <span class="arr" aria-hidden="true">→</span></a></li>
         </ul>
       </nav>
     </div>
@@ -96,7 +101,7 @@
       <div class="shell">
         <div class="split">
           <div class="split__media reveal">
-            <div class="media-card art art--bone" role="img" aria-label="Raw, unbleached cotton cloth — the literal meaning of the word কোরা.">
+            <div class="media-card art art--bone" role="img" aria-label="Hands holding raw unbleached cotton cloth — কোরা." style="background-image:url('assets/kora-origin.png');background-position:center 65%">
               <span class="art__tag">কোরা — raw cloth</span>
             </div>
           </div>
@@ -164,6 +169,15 @@
       </div>
     </section>
 
+    <!-- LIFESTYLE -->
+    <section class="section section--tight">
+      <div class="shell">
+        <div class="media-card art reveal" role="img" aria-label="A person training outdoors in Vancouver in bone-toned cotton." style="aspect-ratio:3/4;min-height:auto;max-width:460px;margin-inline:auto;background-position:center top;background-image:url('assets/kora-lifestyle.png')">
+          <span class="art__tag">Bangladesh → Vancouver</span>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="shell">
         <div class="callout reveal">
@@ -185,29 +199,4 @@
           <span class="brand__mark">KORA <span class="bn" style="font-size:1.1rem;color:var(--clay)" aria-hidden="true">কোরা</span></span>
           <p>The world's best cotton, kept by the people who make it. Bangladesh-born, trained-for in Vancouver.</p>
         </div>
-        <div class="foot-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="shop.html">Shop · Drop 01</a></li>
-          </ul>
-        </div>
-        <div class="foot-col">
-          <h4>Reach</h4>
-          <ul>
-            <li><a href="shop.html">Join the waitlist</a></li>
-            <li><a href="mailto:hello@kora.example">hello@kora.example</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-base">
-        <span>© <span data-year>2026</span> KORA. All rights reserved.</span>
-        <span>Bangladesh <span aria-hidden="true">→</span> Vancouver</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="app.js" defer></script>
-</body>
-</html>
+        <div class=

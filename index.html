@@ -7,6 +7,8 @@
   <meta name="description" content="KORA is a Bangladesh-born training brand. The best cotton on earth, kept by the people who make it — premium fabric, minimalist design, made honestly. Built for people who train in Vancouver." />
   <meta name="theme-color" content="#EDE7DB" />
   <link rel="canonical" href="https://kora.example/index.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -15,14 +17,16 @@
   <meta property="og:description" content="A Bangladesh-born training brand. Premium cotton, minimalist design, made honestly — for people who train." />
   <meta property="og:locale" content="en_CA" />
   <meta property="og:url" content="https://kora.example/index.html" />
-  <meta property="og:image" content="assets/og-cover.svg" />
+  <meta property="og:image" content="assets/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="KORA wordmark in raw cotton and clay — কোরা, Bangladesh to Vancouver." />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="KORA — The World's Best Cotton, Kept Home" />
   <meta name="twitter:description" content="A Bangladesh-born training brand. Premium cotton, minimalist design, made honestly." />
-  <meta name="twitter:image" content="assets/og-cover.svg" />
+  <meta name="twitter:image" content="assets/og-cover.png" />
 
   <!-- Fonts (graceful fallback to system if offline) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,6 +54,7 @@
     <div class="shell">
       <nav class="nav" aria-label="Primary">
         <a class="brand" href="index.html" aria-label="KORA home">
+          <img class="brand__icon" src="assets/logo-mark.svg" alt="" width="22" height="22" />
           <span class="brand__mark">KORA</span>
           <span class="brand__bn bn" aria-hidden="true">কোরা</span>
         </a>
@@ -60,7 +65,7 @@
           <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
           <li><a class="nav__link" href="about.html">About</a></li>
           <li><a class="nav__link" href="shop.html">Shop</a></li>
-          <li><a class="nav__link btn btn--ghost" href="shop.html">Drop 01 <span class="arr" aria-hidden="true">→</span></a></li>
+          <li><a class="nav__link btn btn--ghost" href="shop.html#waitlist">Drop 01 <span class="arr" aria-hidden="true">→</span></a></li>
         </ul>
       </nav>
     </div>
@@ -85,10 +90,10 @@
         </div>
 
         <div class="hero__panel reveal">
-          <div class="art art--bone" role="img" aria-label="Raw, unbleached cotton cloth in its most honest state — the meaning of কোরা.">
+          <div class="art art--bone" role="img" aria-label="Raw, unbleached cotton cloth in its most honest state — the meaning of কোরা." style="background-image:url('assets/kora-fabric.png')">
             <span class="art__tag">Raw cotton — কোরা</span>
           </div>
-          <div class="art art--clay" role="img" aria-label="Clay-toned panel from KORA's palette, where garment imagery will sit.">
+          <div class="art art--clay" role="img" aria-label="The Everyday Tee with a raw cotton boll." style="background-image:url('assets/kora-tee-boll.png')">
             <span class="art__tag">The Everyday Tee</span>
           </div>
         </div>
@@ -135,7 +140,7 @@
             </div>
           </div>
           <div class="split__media reveal">
-            <div class="media-card art art--sage" role="img" aria-label="Sage-toned panel referencing the cotton fields and craft at the source.">
+            <div class="media-card art art--sage" role="img" aria-label="Macro close-up of woven raw cotton — the fibre at the source." style="background-image:url('assets/kora-macro.png')">
               <span class="art__tag">From the source</span>
             </div>
           </div>
@@ -197,7 +202,7 @@
       <div class="shell">
         <div class="product-hero">
           <div class="product-hero__media reveal">
-            <div class="art art--ink" role="img" aria-label="Concept visual for The Everyday Training Tee in ink — garment photography will sit here.">
+            <div class="art art--ink" role="img" aria-label="A person training in The Everyday Training Tee." style="background-image:url('assets/kora-onfigure.png');background-position:center 22%">
               <span class="art__tag">The Everyday Training Tee</span>
             </div>
           </div>
@@ -282,17 +287,4 @@
           <ul>
             <li><a href="shop.html">Join the waitlist</a></li>
             <li><a href="about.html">Our story</a></li>
-            <li><a href="mailto:hello@kora.example">hello@kora.example</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-base">
-        <span>© <span data-year>2026</span> KORA. All rights reserved.</span>
-        <span>Bangladesh <span aria-hidden="true">→</span> Vancouver</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="app.js" defer></script>
-</body>
-</html>
+            

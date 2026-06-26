@@ -141,7 +141,8 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; height: 72px;
 }
-.brand { display: inline-flex; align-items: baseline; gap: 0.55rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; }
+.brand__icon { width: 22px; height: 22px; display: block; flex: none; }
 .brand__mark {
   font-family: var(--display); font-weight: 700; font-size: 1.45rem;
   letter-spacing: 0.16em; color: var(--ink); text-indent: 0.16em;
@@ -160,6 +161,8 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
 }
 .nav__link:hover, .nav__link[aria-current="page"] { color: var(--ink); }
 .nav__link:hover::after, .nav__link[aria-current="page"]::after { width: 100%; }
+/* The Drop CTA is a button, not a text link — suppress the underline */
+.nav__link.btn::after { content: none; }
 
 .nav__toggle { display: none; width: 44px; height: 44px; border-radius: 10px; align-items: center; justify-content: center; }
 .nav__toggle span, .nav__toggle span::before, .nav__toggle span::after {
@@ -200,9 +203,9 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
 .hero__panel {
   margin-top: clamp(2.5rem, 1rem + 5vw, 4rem);
   border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
-  min-height: clamp(260px, 38vw, 460px);
-  display: grid; grid-template-columns: 1.4fr 1fr;
+  display: grid; grid-template-columns: 1fr 1fr;
 }
+.hero .hero__panel .art { aspect-ratio: 3 / 4; min-height: 0; }
 @media (max-width: 640px) { .hero__panel { grid-template-columns: 1fr; } }
 
 /* art blocks — honest abstract visuals, no fabricated photography */
@@ -210,8 +213,12 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
   position: relative; min-height: 200px; color: var(--bone);
   display: flex; align-items: flex-end; padding: 1.4rem;
   font-family: var(--display); letter-spacing: 0.04em;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-color: var(--bone-soft);
 }
-.art__tag { font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.18em; opacity: 0.92; }
+.art::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: none; }
+/* caption sits in a readable chip so it works on any background */
+.art__tag { position: relative; z-index: 1; font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.16em; color: var(--bone); background: rgba(26,24,21,0.42); backdrop-filter: blur(6px); padding: 0.38rem 0.8rem; border-radius: 999px; }
 .art--clay { background:
   radial-gradient(120% 120% at 80% 10%, var(--clay-tint) 0%, var(--clay) 38%, var(--clay-deep) 100%); }
 .art--ink { background:
@@ -251,7 +258,7 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
 .split__body p + p { margin-top: 1rem; }
 .split__body .eyebrow { margin-bottom: 1.1rem; }
 .split__body h2 { margin-bottom: 1.1rem; }
-.media-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: clamp(280px, 36vw, 440px); }
+.media-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 3 / 4; min-height: 0; }
 
 /* ---------- pillars ---------- */
 .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -263,7 +270,8 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
 /* ---------- product grid ---------- */
 .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: clamp(1rem, 0.6rem + 1.5vw, 1.8rem); }
 .product { display: flex; flex-direction: column; }
-.product__media { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 5; }
+.product__media { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 5; background: var(--bone-soft); }
+.product__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .product__media .art { min-height: 100%; height: 100%; }
 .product:hover .art::after { opacity: 0.7; }
 .product__badge {
@@ -320,9 +328,10 @@ h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 600; l
 .footer-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem; margin-top: clamp(2rem, 1.4rem + 2vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--line-soft); color: var(--ink-mute); font-size: var(--step--1); }
 
 /* ---------- reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal { animation: koraFadeUp 0.7s var(--ease) both; }
 .reveal.is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+@keyframes koraFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
 
 /* ---------- page hero (subpages) ---------- */
 .page-hero { padding-block: clamp(2.6rem, 1.4rem + 5vw, 5rem) clamp(1.6rem, 1rem + 2vw, 3rem); }

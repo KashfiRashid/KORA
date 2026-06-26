@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #ede7db;
+  --color-paper: #f7f3ec;
+  --color-bone-soft: #e4dccb;
+  --color-ink: #1a1815;
+  --color-ink-soft: #4a443b;
+  --color-ink-mute: #756e60;
+  --color-clay: #b4552d;
+  --color-clay-deep: #8e3f1f;
+  --color-sage: #7c7a66;
+  --color-line: rgba(26, 24, 21, 0.14);
+
+  --font-display: var(--ff-display);
+  --font-sans: var(--ff-body);
+  --font-bengali: var(--ff-bengali);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bone);
+  color: var(--color-ink-soft);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-clay);
+  color: var(--color-bone);
+}
+
+@keyframes kora-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up { animation: kora-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { animation: none; }
+  html { scroll-behavior: auto; }
+}
